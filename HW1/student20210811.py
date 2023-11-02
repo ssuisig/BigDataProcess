@@ -18,36 +18,36 @@ for row in range(2, 76):
     list1.append(sum)
 list2 = list1.copy()
 list1.sort(reverse=True)
-print(list1)
 
 for i in range(len(list1)):
+    lenA = int(len(list1)*0.3)
+    lenB = int(len(list1)*0.7)
+    lenC = len(list1)
     if list1[i] < 40:
         listGrade.append((list1[i], 'F'))
         if listGrade[i][0] in list2:
             ws.cell(row=list2.index(listGrade[i][0])+2, column=8, value=listGrade[i][1])
     else:
-        if i <= int(len(list1) * 0.15):
-            listGrade.append((list1[i], 'A+'))
-            if listGrade[i][0] in list2:
+        if i <= lenA:
+            if i <= lenA //2:
+                listGrade.append((list1[i], 'A+'))
                 ws.cell(row=list2.index(listGrade[i][0])+2, column=8, value=listGrade[i][1])
-        elif i <= int(len(list1) * 0.3):
-            listGrade.append((list1[i], 'A0'))
-            if listGrade[i][0] in list2:
+            else:
+                listGrade.append((list1[i],'A0'))
                 ws.cell(row=list2.index(listGrade[i][0])+2, column=8, value=listGrade[i][1])
-        elif i <= int(len(list1) * 0.5):
-            listGrade.append((list1[i], 'B+'))
-            if listGrade[i][0] in list2:
+        elif i <= lenB:
+            if i <= (lenB-lenA) //2 + lenA:
+                listGrade.append((list1[i], 'B+'))
                 ws.cell(row=list2.index(listGrade[i][0])+2, column=8, value=listGrade[i][1])
-        elif i <= int(len(list1) * 0.7):
-            listGrade.append((list1[i], 'B0'))
-            if listGrade[i][0] in list2:
-                ws.cell(row=list2.index(listGrade[i][0])+2, column=8, value=listGrade[i][1])
-        elif i <= int(len(list1) * 0.85):
-            listGrade.append((list1[i], 'C+'))
-            if listGrade[i][0] in list2:
+            else:
+                listGrade.append((list1[i],'B0'))
                 ws.cell(row=list2.index(listGrade[i][0])+2, column=8, value=listGrade[i][1])
         else:
-            listGrade.append((list1[i], 'C0'))
-            if listGrade[i][0] in list2:
+            if i <= (lenC-lenB) //2 + lenB:
+                listGrade.append((list1[i], 'C+'))
                 ws.cell(row=list2.index(listGrade[i][0])+2, column=8, value=listGrade[i][1])
+            else:
+                listGrade.append((list1[i],'C0'))
+                ws.cell(row=list2.index(listGrade[i][0])+2, column=8, value=listGrade[i][1])
+print(listGrade)
 wb.save('student.xlsx')
