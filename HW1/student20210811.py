@@ -70,7 +70,6 @@ for i in range(1, len(list1)):
                 listGrade.append((list1[i],'C0'))
                 ws.cell(row=list2.index(listGrade[i][0])+1, column=8, value=listGrade[i][1])
                 C2 += 1
-print(listC1)
 if A1 > A2:
     for i in range((A1+A2)//2):
         ws.cell(row=list2.index(listA1[-1])+1, column=8, value='A0')
