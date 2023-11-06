@@ -2,8 +2,9 @@
 genreDict = dict()
 genreList = []
 
-f = open("movies_exp.txt", "rt")
+f = open("movies_exp.dat", "rt")
 f2 = open("movieoutput.txt", "wt")
+
 for line in f:
     genreList = line[line.rfind(':')+1:-1].split('|')
     for i in genreList:
