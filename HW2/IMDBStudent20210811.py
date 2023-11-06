@@ -2,11 +2,11 @@
 genreDict = dict()
 genreList = []
 
-f = open("movies_exp.dat", "rt")
-f2 = open("movieoutput.txt", "wt")
+f = open("E:/bigdata/BigDataProcess/HW2/movies_exp.txt", "rt")
+f2 = open("E:/bigdata/BigDataProcess/HW2/movieoutput.txt", "wt")
 
 for line in f:
-    genreList = line[line.rfind(':')+1:-1].split('|')
+    genreList = (line[line.rfind(':')+1:]).rstrip('\n').split('|')
     for i in genreList:
         if i in genreDict:
             genreDict[i] += 1
