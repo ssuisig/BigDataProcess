@@ -4,11 +4,16 @@ import datetime
 uberDayDic = dict()
 uberTripsDic = dict()
 
-f = open("uber_exp.dat", "rt")
-f2 = open("uberoutput.txt", "wt")
+f = open("E:/bigdata/BigDataProcess/HW2/uber_exp.txt", "rt")
+f2 = open("E:/bigdata/BigDataProcess/HW2/uberoutput.txt", "wt")
+# f = open("uber_exp.dat", "rt")
+# f2 = open("uberoutput.txt", "wt")
 
 for line in f:
-    tempList = line[:-1].split(',')
+
+
+    tempList = (line.rstrip('\n')).split(',')
+    print(tempList)
     tempList[2] = int(tempList[2])
     tempList[3] = int(tempList[3])
 
