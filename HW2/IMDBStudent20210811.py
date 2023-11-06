@@ -1,4 +1,5 @@
 #!usr/bin/python3
+import sys
 genreDict = dict()
 genreList = []
 resultList = []
@@ -6,8 +7,6 @@ resultList = []
 inputFile = sys.argv[1]
 outputFile = sys.argv[2]
 
-# f = open("E:/bigdata/BigDataProcess/HW2/movies_exp.txt", "rt")
-# f2 = open("E:/bigdata/BigDataProcess/HW2/movieoutput.txt", "wt")
 
 with open(inputFile, "rt") as f:
     for line in f:
