@@ -4,8 +4,8 @@ import datetime
 uberDayDic = dict()
 uberTripsDic = dict()
 
-f = open("E:/bigdata/BigDataProcess/HW2/uber_exp.txt", "rt")
-f2 = open("E:/bigdata/BigDataProcess/HW2/uberoutput.txt", "wt")
+f = open("uber_exp.dat", "rt")
+f2 = open("uberoutput.txt", "wt")
 
 for line in f:
     tempList = line[:-1].split(',')
@@ -28,7 +28,6 @@ for line in f:
         tempList[1] = 'SAT'
     elif dayInt.isoweekday() == 7:
         tempList[1] = 'SUN'
-    # print(tempList)
 
     uberTup = (tempList[0], tempList[1])
 
