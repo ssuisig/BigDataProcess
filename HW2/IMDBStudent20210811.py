@@ -19,8 +19,7 @@ with open(inputFile, "rt") as f:
     for i in genreDict:
         resultStr = str(i)+' '+str(genreDict[i])
         resultList.append(resultStr)
-print(resultStr)
 
 with open(outputFile, "wt") as fp:
-    for i in resultStr:
-        print(i)
+    for i in resultList:
+        fp.write(i+'\n')
